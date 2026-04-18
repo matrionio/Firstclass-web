@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,23 +16,82 @@
   }
 
   body {
-    @apply bg-white text-text font-sans antialiased;
+    background-color: #080808;
+    color: #F0EBE1;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3 {
-    @apply font-serif;
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  ::selection {
+    background-color: #C9A961;
+    color: #080808;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C9A961;
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    background: linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #C9A961 100%);
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9A961 0%, #E8C97A 50%, #C9A961 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .gold-border {
-    border-image: linear-gradient(135deg, #C9A961, #D4AF37) 1;
+  .gold-line {
+    background: linear-gradient(90deg, transparent, #C9A961, transparent);
+  }
+
+  .gold-line-left {
+    background: linear-gradient(90deg, #C9A961, transparent);
+  }
+
+  .card-dark {
+    background: #111111;
+    border: 1px solid #222222;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-dark:hover {
+    border-color: #C9A961;
+  }
+
+  .text-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .corner-decorator::before,
+  .corner-decorator::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: #C9A961;
+    border-style: solid;
+  }
+  .corner-decorator::before {
+    top: 12px;
+    left: 12px;
+    border-width: 1px 0 0 1px;
+  }
+  .corner-decorator::after {
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 1px 1px 0;
   }
 }

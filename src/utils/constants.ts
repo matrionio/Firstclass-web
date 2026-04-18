@@ -215,7 +215,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'James Richardson',
     role: 'CEO, TechCorp Inc.',
     content:
-      'LIMOTECH consistently delivers exceptional service. Their chauffeurs are professional, punctual, and discreet. My go-to for all corporate travel.',
+      'FIRST CLASS LIMO consistently delivers exceptional service. Their chauffeurs are professional, punctual, and discreet. My go-to for all corporate travel.',
     rating: 5,
   },
   {
@@ -290,7 +290,7 @@ export const BLOG_IMAGES = {
 }
 
 export const COMPANY_INFO = {
-  name: 'LIMOTECH',
+  name: 'FIRST CLASS LIMO',
   legalName: '15820715 Canada Inc.',
   tagline: 'Elevating Every Journey',
   phone: '+1 (438) 356-0548',
@@ -300,5 +300,5 @@ export const COMPANY_INFO = {
   established: 2015,
   address: '975 Romeo Vachon Blvd N, Dorval, Quebec H4Y 1H1,Canada',
   description:
-    'Limotech was founded in Montreal with a mission to deliver reliable, high-end transportation services tailored to both corporate and private clients. What began as a small chauffeur service has grown into a trusted luxury transportation provider, known for professionalism, punctuality, and exceptional customer care. Today, Limotech continues to serve the Greater Montreal area with a modern fleet and a commitment to excellence in every ride.',
+    'First Class Limo was founded in Montreal with a mission to deliver reliable, high-end transportation services tailored to both corporate and private clients. What began as a small chauffeur service has grown into a trusted luxury transportation provider, known for professionalism, punctuality, and exceptional customer care. Today, First Class Limo continues to serve the Greater Montreal area with a modern fleet and a commitment to excellence in every ride.',
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -10,8 +9,8 @@ import { LanguageProvider } from '@/context/LanguageContext'
 export const metadata: Metadata = {
   metadataBase: new URL('https://limotech.ca'),
   title: {
-    default: 'LIMOTECH | Luxury Transportation Services',
-    template: '%s | LIMOTECH',
+    default: 'FIRST CLASS LIMO | Luxury Transportation Services',
+    template: '%s | FIRST CLASS LIMO',
   },
   description:
     'Premium luxury limousine and transportation services in Montreal. Airport transfers, corporate travel, special events, and more. Available 24/7.',
@@ -22,14 +21,14 @@ export const metadata: Metadata = {
     'corporate transportation Quebec',
     'limo service Montreal',
     'chauffeur service Montreal',
-    'LIMOTECH',
+    'FIRST CLASS LIMO',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_CA',
     url: 'https://limotech.ca',
-    siteName: 'LIMOTECH',
-    title: 'LIMOTECH | Luxury Transportation Services',
+    siteName: 'FIRST CLASS LIMO',
+    title: 'FIRST CLASS LIMO | Luxury Transportation Services',
     description:
       'Premium luxury limousine and transportation services in Toronto. Available 24/7.',
     images: [
@@ -37,13 +36,13 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'LIMOTECH Luxury Transportation',
+        alt: 'FIRST CLASS LIMO Luxury Transportation',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LIMOTECH | Luxury Transportation Services',
+    title: 'FIRST CLASS LIMO | Luxury Transportation Services',
     description: 'Premium luxury limousine and transportation services in Toronto.',
   },
   robots: {
@@ -76,7 +75,7 @@ export default function RootLayout({
             __html: safeJsonLd({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              name: 'LIMOTECH',
+              name: 'FIRST CLASS LIMO',
               description: 'Luxury Transportation Services — Montreal',
               legalName: '15820715 Canada Inc.',
               url: 'https://limotech.ca',
@@ -102,13 +101,6 @@ export default function RootLayout({
           <WhatsAppButton />
           <ScrollToTop />
         </LanguageProvider>
-        <Script
-          id="tawk-to"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69df9b901886811c33b04d09/1jm8nfbb2';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();`,
-          }}
-        />
       </body>
     </html>
   )

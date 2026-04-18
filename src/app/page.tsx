@@ -7,7 +7,7 @@ import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CtaSection from '@/components/home/CtaSection'
 
 export const metadata: Metadata = {
-  title: 'LIMOTECH | Luxury Transportation Services Toronto',
+  title: 'FIRST CLASS LIMO | Luxury Transportation Services Montreal',
   description:
     'Premium luxury limousine and transportation services in Toronto. Airport transfers, corporate travel, special events, and more. Available 24/7.',
 }

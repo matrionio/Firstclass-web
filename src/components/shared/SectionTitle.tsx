@@ -24,36 +24,36 @@ export default function SectionTitle({
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.7 }}
       className={centered ? 'text-center' : ''}
     >
       {eyebrow && (
-        <p className="text-secondary text-sm font-semibold tracking-[0.2em] uppercase mb-3">
-          {eyebrow}
-        </p>
+        <div className={`flex items-center gap-3 mb-4 ${centered ? 'justify-center' : ''}`}>
+          <span className="w-8 h-px bg-secondary" />
+          <p className="text-secondary text-xs font-medium tracking-[0.35em] uppercase">
+            {eyebrow}
+          </p>
+          <span className="w-8 h-px bg-secondary" />
+        </div>
       )}
       <h2
         id={id}
-        className={`text-3xl sm:text-4xl font-serif font-bold leading-tight ${
+        className={`font-serif font-light leading-tight ${
           light ? 'text-white' : 'text-text'
         }`}
+        style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`mt-4 text-lg leading-relaxed max-w-2xl ${
+          className={`mt-5 leading-relaxed max-w-2xl text-base ${
             centered ? 'mx-auto' : ''
-          } ${light ? 'text-gray-300' : 'text-textLight'}`}
+          } ${light ? 'text-gray-400' : 'text-textLight'}`}
         >
           {subtitle}
         </p>
       )}
-      <div
-        className={`mt-5 h-0.5 w-16 bg-secondary ${
-          centered ? 'mx-auto' : ''
-        }`}
-      />
     </motion.div>
   )
 }

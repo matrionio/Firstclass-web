@@ -8,16 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#000000',
+        primary: '#080808',
         secondary: '#C9A961',
         gold: '#D4AF37',
-        accent: '#F5F5F5',
-        text: '#1A1A1A',
-        textLight: '#6B7280',
+        goldLight: '#E8C97A',
+        accent: '#111111',
+        surface: '#161616',
+        midnight: '#0A1628',
+        burgundy: '#6B1020',
+        text: '#F0EBE1',
+        textLight: '#8A8A8A',
+        textMuted: '#444444',
+        border: '#222222',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       screens: {
         sm: '640px',
@@ -25,6 +32,10 @@ module.exports = {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',
+      },
+      letterSpacing: {
+        widest2: '0.3em',
+        widest3: '0.5em',
       },
     },
   },

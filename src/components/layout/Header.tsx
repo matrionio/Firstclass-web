@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, MapPin } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 import { NAV_LINKS, COMPANY_INFO } from '@/utils/constants'
-import Button from '@/components/ui/Button'
 import { useLanguage } from '@/context/LanguageContext'
 
 export default function Header() {
@@ -16,7 +15,7 @@ export default function Header() {
   const { lang, setLang, t } = useLanguage()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    const handleScroll = () => setIsScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -40,22 +39,27 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: isScrolled ? '#000000' : 'rgba(0,0,0,0.7)',
-        boxShadow: isScrolled ? '0 2px 20px rgba(0,0,0,0.5)' : 'none',
+        backgroundColor: isScrolled ? 'rgba(8,8,8,0.98)' : 'rgba(8,8,8,0.7)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: isScrolled ? '1px solid rgba(201,169,97,0.15)' : '1px solid transparent',
         transition: 'all 0.4s ease',
       }}
     >
+      {/* Top gold line */}
+      <div className="h-px gold-line opacity-60" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '105px' }}>
 
           {/* Logo */}
-          <Link href="/" aria-label="LIMOTECH Home">
+          <Link href="/" aria-label="FIRST CLASS LIMO Home">
             <Image
-              src="/images/limotechtransparente.png"
-              alt="LIMOTECH Logo"
+              src="/images/Firstclasss.jpeg"
+              alt="First Class Logo"
               width={300}
               height={100}
-              style={{ height: '160px', width: 'auto', display: 'block', filter: 'brightness(1.4) contrast(1.2) drop-shadow(0 0 8px rgba(201, 169, 97, 0.6))' }}
+              style={{ height: '100px', width: 'auto', display: 'block' }}
               priority
             />
           </Link>
@@ -67,106 +71,122 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 style={{
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  letterSpacing: '0.1em',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  letterSpacing: '0.18em',
                   textTransform: 'uppercase',
-                  color: pathname === link.href ? '#C9A961' : '#ffffff',
+                  color: pathname === link.href ? '#C9A961' : 'rgba(255,255,255,0.75)',
                   textDecoration: 'none',
                   transition: 'color 0.2s',
+                  position: 'relative',
                 }}
+                onMouseEnter={e => { if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = '#C9A961' }}
+                onMouseLeave={e => { if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.75)' }}
               >
                 {navLabels[i]}
+                {pathname === link.href && (
+                  <span style={{
+                    position: 'absolute',
+                    bottom: '-4px',
+                    left: 0,
+                    right: 0,
+                    height: '1px',
+                    background: '#C9A961',
+                  }} />
+                )}
               </Link>
             ))}
           </nav>
 
-          {/* Right side: Lang toggle + Contact info */}
+          {/* Right: Lang + Phone */}
           <div className="hidden lg:flex items-center gap-6">
-            {/* Language Toggle */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <button
-                onClick={() => setLang('en')}
-                style={{
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em',
-                  color: lang === 'en' ? '#C9A961' : '#9ca3af',
-                  padding: '4px 6px', transition: 'color 0.2s',
-                }}
-                aria-label="Switch to English"
-              >
-                EN
-              </button>
-              <span style={{ color: '#4b5563', fontSize: '12px' }}>|</span>
-              <button
-                onClick={() => setLang('fr')}
-                style={{
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em',
-                  color: lang === 'fr' ? '#C9A961' : '#9ca3af',
-                  padding: '4px 6px', transition: 'color 0.2s',
-                }}
-                aria-label="Passer au français"
-              >
-                FR
-              </button>
+
+            {/* Language toggle */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+              {(['en', 'fr'] as const).map((l, i) => (
+                <>
+                  {i > 0 && <span key={`sep-${l}`} style={{ color: '#333', fontSize: '11px', padding: '0 2px' }}>|</span>}
+                  <button
+                    key={l}
+                    onClick={() => setLang(l)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      letterSpacing: '0.12em',
+                      color: lang === l ? '#C9A961' : 'rgba(255,255,255,0.35)',
+                      padding: '4px 6px',
+                      transition: 'color 0.2s',
+                    }}
+                    aria-label={l === 'en' ? 'Switch to English' : 'Passer au français'}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                </>
+              ))}
             </div>
 
-            {/* Contact Info */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                <span style={{ fontSize: '10px', color: '#C9A961', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' }}>Book Now</span>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Phone size={13} style={{ color: '#C9A961', flexShrink: 0 }} />
-                  <a
-                    href={`tel:${COMPANY_INFO.phone}`}
-                    style={{ fontSize: '12px', color: '#ffffff', textDecoration: 'none', letterSpacing: '0.03em', transition: 'color 0.2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#C9A961')}
-                    onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
-                  >
-                    {COMPANY_INFO.phone}
-                  </a>
-                </div>
-              </div>
-              <span style={{ width: '1px', height: '28px', backgroundColor: '#2d2d2d', flexShrink: 0 }} />
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
-                <MapPin size={13} style={{ color: '#C9A961', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '11px', color: '#9ca3af', lineHeight: '1.4' }}>
-                  975 Romeo Vachon Blvd N,<br />Dorval, Quebec H4Y 1H1
-                </span>
-              </div>
-            </div>
+            {/* Phone */}
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 18px',
+                border: '1px solid rgba(201,169,97,0.3)',
+                color: '#C9A961',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                textDecoration: 'none',
+                fontWeight: 600,
+                transition: 'all 0.3s',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = '#C9A961'
+                ;(e.currentTarget as HTMLElement).style.color = '#080808'
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = 'transparent'
+                ;(e.currentTarget as HTMLElement).style.color = '#C9A961'
+              }}
+            >
+              <Phone size={12} />
+              {COMPANY_INFO.phone}
+            </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile toggle */}
           <button
-            style={{ color: '#ffffff', background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}
+            style={{ color: '#C9A961', background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}
             className="lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div style={{ backgroundColor: '#000000', borderTop: '1px solid #1f1f1f' }}>
-          <nav className="flex flex-col py-4 px-4 gap-2" aria-label="Mobile navigation">
+        <div style={{ backgroundColor: '#080808', borderTop: '1px solid #1a1a1a' }}>
+          <nav className="flex flex-col py-4 px-4 gap-1" aria-label="Mobile navigation">
             {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
                 style={{
-                  padding: '12px 16px',
-                  fontSize: '16px',
+                  padding: '14px 16px',
+                  fontSize: '11px',
                   fontWeight: 500,
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  borderBottom: '1px solid #1f1f1f',
-                  color: pathname === link.href ? '#C9A961' : '#ffffff',
+                  borderBottom: '1px solid #111',
+                  color: pathname === link.href ? '#C9A961' : 'rgba(255,255,255,0.7)',
                   textDecoration: 'none',
                 }}
               >
@@ -174,47 +194,48 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* Mobile Language Toggle */}
-            <div style={{ display: 'flex', gap: '8px', padding: '12px 16px', borderBottom: '1px solid #1f1f1f' }}>
-              <button
-                onClick={() => setLang('en')}
-                style={{
-                  background: lang === 'en' ? '#C9A961' : 'transparent',
-                  border: '1px solid #C9A961',
-                  color: lang === 'en' ? '#000000' : '#C9A961',
-                  cursor: 'pointer',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  padding: '4px 12px',
-                }}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang('fr')}
-                style={{
-                  background: lang === 'fr' ? '#C9A961' : 'transparent',
-                  border: '1px solid #C9A961',
-                  color: lang === 'fr' ? '#000000' : '#C9A961',
-                  cursor: 'pointer',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  padding: '4px 12px',
-                }}
-              >
-                FR
-              </button>
+            <div style={{ display: 'flex', gap: '8px', padding: '16px 16px 8px' }}>
+              {(['en', 'fr'] as const).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  style={{
+                    background: lang === l ? '#C9A961' : 'transparent',
+                    border: '1px solid rgba(201,169,97,0.4)',
+                    color: lang === l ? '#080808' : '#C9A961',
+                    cursor: 'pointer',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    letterSpacing: '0.15em',
+                    padding: '6px 14px',
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
             </div>
 
-            <div style={{ paddingTop: '16px' }}>
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={() => (window.location.href = '/contact')}
-              >
-                {t.nav.bookRide}
-              </Button>
-            </div>
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                margin: '8px 16px',
+                padding: '14px 18px',
+                background: 'rgba(201,169,97,0.08)',
+                border: '1px solid rgba(201,169,97,0.2)',
+                color: '#C9A961',
+                fontSize: '12px',
+                letterSpacing: '0.1em',
+                textDecoration: 'none',
+                fontWeight: 600,
+              }}
+            >
+              <Phone size={14} />
+              {COMPANY_INFO.phone}
+            </a>
           </nav>
         </div>
       )}

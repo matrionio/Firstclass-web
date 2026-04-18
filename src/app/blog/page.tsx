@@ -177,7 +177,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Limotech banner */}
+      {/* First Class Limo banner */}
       <section className="py-20 bg-primary relative" aria-label="Book a ride">
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -2,61 +2,166 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import { useLanguage } from '@/context/LanguageContext'
+import { Phone } from 'lucide-react'
+import { COMPANY_INFO } from '@/utils/constants'
 
 export default function HeroSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden" aria-label="Hero section">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60" style={{ backgroundImage: "url('/images/hero-bg.jpg')" }} role="presentation" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent" />
+    <section className="relative min-h-screen overflow-hidden bg-primary" aria-label="Hero section">
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {t.hero.eyebrow && (
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase mb-6">
-            {t.hero.eyebrow}
-          </motion.p>
-        )}
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-right bg-no-repeat"
+        style={{ backgroundImage: "url('/heronew2.avif')" }}
+        role="presentation"
+      />
 
-        <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-4">
-          {t.hero.title.split(' ').slice(0, 2).join(' ')}{' '}
-          <span className="text-gradient">{t.hero.title.split(' ').slice(2, 4).join(' ')}</span>
-          <br />
-          {t.hero.title.split(' ').slice(4).join(' ')}
-        </motion.h1>
+      {/* Layered overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
 
-        <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="text-xl sm:text-2xl text-gray-300 font-light tracking-wider mb-10">
-          {t.hero.subtitle}
-        </motion.p>
+      {/* Top gold line */}
+      <div className="absolute top-0 left-0 right-0 h-px gold-line" />
 
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contact"><Button variant="primary" size="lg">{t.hero.bookRide}</Button></Link>
-          <Link href="/fleet"><Button variant="outline" size="lg">{t.hero.viewFleet}</Button></Link>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.7 }} className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto">
-          {[
-            { value: '10+', label: t.hero.years },
-            { value: '5K+', label: t.hero.clients },
-            { value: '24/7', label: t.hero.availability },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-serif font-bold text-secondary">{stat.value}</p>
-              <p className="text-gray-400 text-xs tracking-wider mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
+      {/* Vertical decorative text */}
+      <div
+        className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-3 z-10"
+        aria-hidden="true"
+      >
+        <span
+          className="text-secondary/30 text-xs tracking-[0.4em] uppercase"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
+          Driven by Excellence
+        </span>
+        <div className="w-px h-20 bg-gradient-to-b from-secondary/30 to-transparent" />
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.6 }} className="absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true">
+      {/* Main content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
+        <div className="max-w-xl">
+
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex items-center gap-4 mb-8"
+          >
+            <div className="w-10 h-px bg-secondary" />
+            <span className="text-secondary text-xs font-medium tracking-[0.4em] uppercase">
+              THC — First Class Limo
+            </span>
+          </motion.div>
+
+          {/* Main heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+            className="font-serif font-light text-white leading-none mb-4"
+            style={{ fontSize: 'clamp(3rem, 7vw, 6rem)', letterSpacing: '-0.01em' }}
+          >
+            {t.hero.title.split(' ').slice(0, 2).join(' ')}
+            <br />
+            <span className="text-gradient-gold italic">
+              {t.hero.title.split(' ').slice(2, 4).join(' ')}
+            </span>
+            <br />
+            <span className="font-light">
+              {t.hero.title.split(' ').slice(4).join(' ')}
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="text-gray-300 font-light tracking-widest text-base uppercase mb-12"
+            style={{ letterSpacing: '0.3em' }}
+          >
+            {t.hero.subtitle}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 mb-16"
+          >
+            <Link href="/contact">
+              <Button variant="primary" size="lg">{t.hero.bookRide}</Button>
+            </Link>
+            <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-3 px-6 py-4 border border-white/20 hover:border-secondary text-white hover:text-secondary transition-all duration-300 text-sm tracking-widest uppercase font-medium">
+              <Phone size={16} />
+              {COMPANY_INFO.phone}
+            </a>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="flex gap-12 pt-8 border-t border-white/10"
+          >
+            {[
+              { value: '10+', label: t.hero.years },
+              { value: '5K+', label: t.hero.clients },
+              { value: '24/7', label: t.hero.availability },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="font-serif text-3xl font-light text-secondary" style={{ letterSpacing: '0.05em' }}>
+                  {stat.value}
+                </p>
+                <p className="text-gray-500 text-xs tracking-widest uppercase mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Logo watermark bottom right */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-8 right-8 hidden lg:block z-10"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/Firstclasss.jpeg"
+          alt=""
+          width={100}
+          height={100}
+          className="opacity-20"
+          style={{ width: '80px', height: 'auto' }}
+        />
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        aria-hidden="true"
+      >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-gray-500 text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-secondary to-transparent" />
+          <div className="w-px h-14 bg-gradient-to-b from-secondary/60 to-transparent" />
+          <span className="text-gray-600 text-xs tracking-widest uppercase">Scroll</span>
         </div>
       </motion.div>
+
+      {/* Bottom gold line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px gold-line" />
     </section>
   )
 }
