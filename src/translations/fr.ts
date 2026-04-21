@@ -13,7 +13,7 @@ const fr: Translations = {
   hero: {
     eyebrow: '',
     title: 'Expérience de Chauffeur Élite dans le Grand Montréal',
-    subtitle: 'Élevant chaque trajet',
+    subtitle: 'LUXURY IN MOTION',
     bookRide: 'Réserver votre trajet',
     viewFleet: 'Voir notre flotte',
     years: 'Ans de service',
@@ -239,7 +239,7 @@ const fr: Translations = {
     required: 'Les champs marqués * sont obligatoires.',
   },
   footer: {
-    tagline: 'Élevant chaque trajet',
+    tagline: 'LUXURY IN MOTION',
     description: 'Services de transport première classe depuis',
     serving: 'Au service du Grand Montréal.',
     quickLinks: 'Liens rapides',

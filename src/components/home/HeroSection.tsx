@@ -17,13 +17,13 @@ export default function HeroSection() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-right bg-no-repeat"
-        style={{ backgroundImage: "url('/heronew2.avif')" }}
+        style={{ backgroundImage: "url('/images/fleet/herotres.png')" }}
         role="presentation"
       />
 
-      {/* Layered overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+      {/* Overlay — dark on left (text area), transparent on right (car visible) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
       {/* Top gold line */}
       <div className="absolute top-0 left-0 right-0 h-px gold-line" />
@@ -113,8 +113,8 @@ export default function HeroSection() {
             className="flex gap-12 pt-8 border-t border-white/10"
           >
             {[
-              { value: '10+', label: t.hero.years },
-              { value: '5K+', label: t.hero.clients },
+              { value: '5+', label: t.hero.years },
+              { value: '2K+', label: t.hero.clients },
               { value: '24/7', label: t.hero.availability },
             ].map((stat) => (
               <div key={stat.label}>

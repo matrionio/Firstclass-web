@@ -11,7 +11,7 @@ const en = {
   hero: {
     eyebrow: '',
     title: 'Elite Chauffeured Experience in Greater Montreal',
-    subtitle: 'Elevating Every Journey',
+    subtitle: 'LUXURY IN MOTION',
     bookRide: 'Book Your Ride',
     viewFleet: 'View Our Fleet',
     years: 'Years of Service',
@@ -237,7 +237,7 @@ const en = {
     required: 'Fields marked with * are required.',
   },
   footer: {
-    tagline: 'Elevating Every Journey',
+    tagline: 'LUXURY IN MOTION',
     description: 'First Class transportation services since',
     serving: 'Proudly serving the Greater Montreal.',
     quickLinks: 'Quick Links',

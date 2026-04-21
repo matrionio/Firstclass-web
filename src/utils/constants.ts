@@ -98,13 +98,13 @@ export const SERVICES: Service[] = [
 
 export const VEHICLES: Vehicle[] = [
   {
-    id: 'mercedes-s-class',
-    name: 'Mercedes-Benz S-Class',
-    model: 'S 580 4MATIC',
+    id: 'audi-s8',
+    name: 'Audi S8',
+    model: 'S8 Plus Quattro',
     capacity: 3,
     luggage: 3,
     amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Phone Charger'],
-    images: ['/images/fleet/Mercedes.jpg'],
+    images: ['/images/fleet/audis8.jpg'],
     category: 'Sedan',
   },
   {
@@ -292,7 +292,7 @@ export const BLOG_IMAGES = {
 export const COMPANY_INFO = {
   name: 'FIRST CLASS LIMO',
   legalName: '15820715 Canada Inc.',
-  tagline: 'Elevating Every Journey',
+  tagline: 'LUXURY IN MOTION',
   phone: '+1 (438) 356-0548',
   email: 'info@limotech.ca',
   whatsapp: '14383560548',
