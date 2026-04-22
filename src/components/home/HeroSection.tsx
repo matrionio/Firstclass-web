@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-right bg-no-repeat"
-        style={{ backgroundImage: "url('/images/fleet/herotres2.jpg')" }}
+        style={{ backgroundImage: "url('/images/fleet/hero4.png')" }}
         role="presentation"
       />
 
