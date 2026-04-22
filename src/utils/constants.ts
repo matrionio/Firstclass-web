@@ -128,16 +128,6 @@ export const VEHICLES: Vehicle[] = [
     category: 'Sedan',
   },
   {
-    id: 'lincoln-nautilus',
-    name: 'Lincoln Nautilus',
-    model: 'Reserve AWD',
-    capacity: 3,
-    luggage: 3,
-    amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Phone Charger'],
-    images: ['/images/fleet/Nautilus.jpg'],
-    category: 'Sedan',
-  },
-  {
     id: 'cadillac-escalade',
     name: 'Cadillac Escalade',
     model: 'ESV Platinum',
@@ -195,16 +185,6 @@ export const VEHICLES: Vehicle[] = [
     luggage: 6,
     amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Phone Charger', '35" Display'],
     images: ['/images/fleet/EscaladeIQ.jpg'],
-    category: 'Electric',
-  },
-  {
-    id: 'tesla-model-s',
-    name: 'Tesla Model S',
-    model: 'Plaid',
-    capacity: 3,
-    luggage: 3,
-    amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Autopilot', '17" Touchscreen'],
-    images: ['/images/fleet/Model S.jpg'],
     category: 'Electric',
   },
 ]

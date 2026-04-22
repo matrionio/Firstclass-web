@@ -10,7 +10,7 @@ const en = {
   },
   hero: {
     eyebrow: '',
-    title: 'Elite Chauffeured Experience in Greater Montreal',
+    title: 'Luxury Transportation Services in Greater Montreal',
     subtitle: 'LUXURY IN MOTION',
     bookRide: 'Book Your Ride',
     viewFleet: 'View Our Fleet',

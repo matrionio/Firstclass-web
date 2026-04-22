@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-right bg-no-repeat"
-        style={{ backgroundImage: "url('/images/fleet/herotres.png')" }}
+        style={{ backgroundImage: "url('/images/fleet/herotres2.jpg')" }}
         role="presentation"
       />
 
@@ -46,19 +46,6 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
         <div className="max-w-xl">
 
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="w-10 h-px bg-secondary" />
-            <span className="text-secondary text-xs font-medium tracking-[0.4em] uppercase">
-              THC — First Class Limo
-            </span>
-          </motion.div>
-
           {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -79,15 +66,17 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-gray-300 font-light tracking-widest text-base uppercase mb-12"
-            style={{ letterSpacing: '0.3em' }}
-          >
-            {t.hero.subtitle}
-          </motion.p>
+          {t.hero.subtitle && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="text-gray-300 font-light tracking-widest text-base uppercase mb-12"
+              style={{ letterSpacing: '0.3em' }}
+            >
+              {t.hero.subtitle}
+            </motion.p>
+          )}
 
           {/* CTA Buttons */}
           <motion.div
