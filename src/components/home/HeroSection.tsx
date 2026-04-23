@@ -22,7 +22,7 @@ export default function HeroSection() {
       />
 
       {/* Overlay — dark on left (text area), transparent on right (car visible) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
       {/* Top gold line */}
