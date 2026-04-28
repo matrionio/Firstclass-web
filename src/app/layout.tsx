@@ -80,7 +80,7 @@ export default function RootLayout({
               legalName: '15820715 Canada Inc.',
               url: 'https://limotech.ca',
               telephone: '+1-XXX-XXX-XXXX',
-              email: 'info@limotech.ca',
+              email: 'info@thcfirstclasslimo.ca',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Montreal',

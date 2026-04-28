@@ -83,7 +83,7 @@ function ContactFormInner() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <Input id="phone" label={f.phone} type="tel" required placeholder="+1 (438) 356-0548" error={errors.phone?.message} maxLength={30}
+        <Input id="phone" label={f.phone} type="tel" required placeholder="+1(450)-712-6972" error={errors.phone?.message} maxLength={30}
           {...register('phone', {
             required: `${f.phone} is required`,
             maxLength: { value: 30, message: 'Max 30 characters' },

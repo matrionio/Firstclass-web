@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Phone, Mail, Clock } from 'lucide-react'
 import { NAV_LINKS, COMPANY_INFO } from '@/utils/constants'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -92,10 +92,6 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Clock size={14} className="text-secondary flex-shrink-0 mt-0.5" />
                 <span className="text-textLight text-sm">{COMPANY_INFO.hours}</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={14} className="text-secondary flex-shrink-0 mt-0.5" />
-                <span className="text-textLight text-sm leading-relaxed">{COMPANY_INFO.address}</span>
               </li>
             </ul>
           </div>

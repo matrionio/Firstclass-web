@@ -177,16 +177,6 @@ export const VEHICLES: Vehicle[] = [
     images: ['/images/fleet/Cadillac VISTIQ.jpg'],
     category: 'Electric',
   },
-  {
-    id: 'cadillac-escalade-iq',
-    name: 'Cadillac Escalade IQ',
-    model: 'Electric SUV',
-    capacity: 6,
-    luggage: 6,
-    amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Phone Charger', '35" Display'],
-    images: ['/images/fleet/EscaladeIQ.jpg'],
-    category: 'Electric',
-  },
 ]
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -273,12 +263,11 @@ export const COMPANY_INFO = {
   name: 'FIRST CLASS LIMO',
   legalName: '15820715 Canada Inc.',
   tagline: 'LUXURY IN MOTION',
-  phone: '+1 (438) 356-0548',
-  email: 'info@limotech.ca',
-  whatsapp: '14383560548',
+  phone: '+1(450)-712-6972',
+  email: 'info@thcfirstclasslimo.ca',
+  whatsapp: '14507126972',
   hours: 'Available 24/7',
   established: 2015,
-  address: '975 Romeo Vachon Blvd N, Dorval, Quebec H4Y 1H1,Canada',
   description:
     'First Class Limo was founded in Montreal with a mission to deliver reliable, high-end transportation services tailored to both corporate and private clients. What began as a small chauffeur service has grown into a trusted luxury transportation provider, known for professionalism, punctuality, and exceptional customer care. Today, First Class Limo continues to serve the Greater Montreal area with a modern fleet and a commitment to excellence in every ride.',
 }
