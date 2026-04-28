@@ -6,7 +6,6 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Fleet', href: '/fleet' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Blog', href: '/blog' },
 ]
 
 export const SERVICES: Service[] = [
