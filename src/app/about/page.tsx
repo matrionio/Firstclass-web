@@ -84,7 +84,7 @@ export default function AboutPage() {
             <div className="bg-accent p-10">
               <div className="flex items-center gap-4 mb-6">
                 <Award size={32} className="text-secondary" />
-                <h3 className="text-xl font-serif font-bold text-text">{ab.certTitle}</h3>
+                <h3 className="text-xl font-serif font-bold text-primary">{ab.certTitle}</h3>
               </div>
               <ul className="space-y-4">
                 {ab.certItems.map((cert) => (

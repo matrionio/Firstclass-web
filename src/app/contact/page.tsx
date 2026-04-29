@@ -48,16 +48,16 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-textLight font-medium uppercase tracking-wider mb-1">{label}</p>
                       {href ? (
-                        <a href={href} className="text-text font-medium hover:text-secondary transition-colors duration-200">{value}</a>
+                        <a href={href} className="text-primary font-medium hover:text-secondary transition-colors duration-200">{value}</a>
                       ) : (
-                        <p className="text-text font-medium">{value}</p>
+                        <p className="text-primary font-medium">{value}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
               <div className="mt-12">
-                <h3 className="text-sm font-semibold text-text uppercase tracking-wider mb-4 border-b border-gray-100 pb-3">{cp.areasTitle}</h3>
+                <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 border-b border-gray-100 pb-3">{cp.areasTitle}</h3>
                 <ul className="space-y-2">
                   {t.footer.serviceAreasList.map((area) => (
                     <li key={area} className="flex items-center gap-2 text-sm text-textLight">

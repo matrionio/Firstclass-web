@@ -39,7 +39,7 @@ function ContactFormInner() {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
         <CheckCircle size={48} className="text-green-500" />
-        <h3 className="text-2xl font-serif font-bold text-text">{f.successTitle}</h3>
+        <h3 className="text-2xl font-serif font-bold text-primary">{f.successTitle}</h3>
         <p className="text-textLight max-w-sm">{f.successText}</p>
         <Button variant="outline" onClick={() => window.location.reload()}>{f.sendAnother}</Button>
       </div>
@@ -90,10 +90,10 @@ function ContactFormInner() {
             pattern: { value: /^[+]?[\d\s\-().]{7,30}$/, message: 'Invalid phone number' },
           })} />
         <div className="flex flex-col gap-1">
-          <label htmlFor="serviceType" className="text-sm font-medium text-text">
+          <label htmlFor="serviceType" className="text-sm font-medium text-primary">
             {f.serviceType} <span className="text-secondary">*</span>
           </label>
-          <select id="serviceType" className="w-full px-4 py-3 bg-white border border-gray-200 text-text focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200"
+          <select id="serviceType" className="w-full px-4 py-3 bg-white border border-gray-200 text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200"
             {...register('serviceType', { required: true })}>
             <option value="">{f.selectService}</option>
             {serviceOptions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
@@ -102,11 +102,11 @@ function ContactFormInner() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="vehicle" className="text-sm font-medium text-text">
+        <label htmlFor="vehicle" className="text-sm font-medium text-primary">
           {lang === 'fr' ? 'Véhicule préféré' : 'Preferred Vehicle'}
         </label>
         <select id="vehicle"
-          className="w-full px-4 py-3 bg-white border border-gray-200 text-text focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200"
+          className="w-full px-4 py-3 bg-white border border-gray-200 text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200"
           {...register('vehicle' as keyof ContactFormData)}>
           <option value="">{lang === 'fr' ? 'Sélectionnez un véhicule' : 'Select a vehicle'}</option>
           {VEHICLES.map((v) => (
@@ -131,9 +131,9 @@ function ContactFormInner() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="specialRequests" className="text-sm font-medium text-text">{f.special}</label>
+        <label htmlFor="specialRequests" className="text-sm font-medium text-primary">{f.special}</label>
         <textarea id="specialRequests" rows={4} placeholder={f.specialPlaceholder} maxLength={1000}
-          className="w-full px-4 py-3 bg-white border border-gray-200 text-text placeholder:text-textLight focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200 resize-none"
+          className="w-full px-4 py-3 bg-white border border-gray-200 text-primary placeholder:text-textLight focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200 resize-none"
           {...register('specialRequests', { maxLength: { value: 1000, message: 'Max 1000 characters' } })} />
       </div>
 

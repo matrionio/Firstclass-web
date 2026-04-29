@@ -38,8 +38,8 @@ export default function SectionTitle({
       )}
       <h2
         id={id}
-        className={`font-serif font-light leading-tight ${
-          light ? 'text-white' : 'text-text'
+        className={`font-serif font-medium leading-tight ${
+          light ? 'text-white' : 'text-primary'
         }`}
         style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}
       >
