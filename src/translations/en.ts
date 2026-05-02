@@ -238,7 +238,7 @@ const en = {
   },
   footer: {
     tagline: 'LUXURY IN MOTION',
-    description: 'First Class transportation services since',
+    description: 'THC First Class transportation services since',
     serving: 'Proudly serving the Greater Montreal.',
     quickLinks: 'Quick Links',
     contact: 'Contact Us',
