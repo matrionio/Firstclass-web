@@ -176,6 +176,16 @@ export const VEHICLES: Vehicle[] = [
     images: ['/images/fleet/Cadillac VISTIQ.jpg'],
     category: 'Electric',
   },
+  {
+    id: 'lucid-air',
+    name: 'Lucid Air',
+    model: 'Grand Touring',
+    capacity: 3,
+    luggage: 3,
+    amenities: ['WiFi', 'Leather Seats', 'Climate Control', 'Bottled Water', 'Phone Charger', 'Glass Canopy Roof'],
+    images: ['/images/fleet/lucio.jpg'],
+    category: 'Electric',
+  },
 ]
 
 export const TESTIMONIALS: Testimonial[] = [
