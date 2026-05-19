@@ -1,13 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { VEHICLES } from '@/utils/constants'
 import VehicleCard from '@/components/shared/VehicleCard'
 import { useLanguage } from '@/context/LanguageContext'
 
-export default function FleetGrid() {
-  const [active, setActive] = useState('all')
+function FleetGridInner() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
   const { t } = useLanguage()
+
+  const active = searchParams.get('category') || 'all'
 
   const categories = [
     { key: 'all', label: t.fleetPage.filterAll },
@@ -17,6 +22,14 @@ export default function FleetGrid() {
     { key: 'Electric', label: t.fleetPage.filterElectric },
   ]
 
+  const handleFilter = (key: string) => {
+    if (key === 'all') {
+      router.push(pathname)
+    } else {
+      router.push(`${pathname}?category=${key}`)
+    }
+  }
+
   const filtered = active === 'all' ? VEHICLES : VEHICLES.filter((v) => v.category === active)
 
   return (
@@ -25,7 +38,7 @@ export default function FleetGrid() {
         {categories.map((cat) => (
           <button
             key={cat.key}
-            onClick={() => setActive(cat.key)}
+            onClick={() => handleFilter(cat.key)}
             aria-pressed={active === cat.key}
             className={`px-6 py-2 text-sm font-medium border transition-all duration-200 ${
               active === cat.key
@@ -43,5 +56,13 @@ export default function FleetGrid() {
         ))}
       </div>
     </>
+  )
+}
+
+export default function FleetGrid() {
+  return (
+    <Suspense fallback={<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" />}>
+      <FleetGridInner />
+    </Suspense>
   )
 }
