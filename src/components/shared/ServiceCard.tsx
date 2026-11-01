@@ -74,7 +74,7 @@ export default function ServiceCard({ service, variant = 'default', index = 0 }:
 
         {/* CTA */}
         <Link
-          href="/contact"
+          href={`/services/${service.slug}`}
           className="inline-flex items-center gap-2 text-secondary text-xs tracking-[0.2em] uppercase font-medium hover:gap-3 transition-all duration-300 group/link"
         >
           {t.servicesPreview.bookNow}

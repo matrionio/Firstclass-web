@@ -5,11 +5,15 @@ import FleetPreview from '@/components/home/FleetPreview'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CtaSection from '@/components/home/CtaSection'
+import { SITE_URL } from '@/utils/serviceLandings'
 
 export const metadata: Metadata = {
   title: 'FIRST CLASS LIMO | Luxury Transportation Services Montreal',
   description:
-    'Premium luxury limousine and transportation services in Toronto. Airport transfers, corporate travel, special events, and more. Available 24/7.',
+    'Premium luxury limousine and transportation services in Greater Montreal. Airport transfers, corporate travel, special events, and more. Available 24/7.',
+  alternates: {
+    canonical: `${SITE_URL}/`,
+  },
 }
 
 export default function HomePage() {

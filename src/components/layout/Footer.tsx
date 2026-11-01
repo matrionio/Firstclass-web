@@ -121,6 +121,11 @@ export default function Footer() {
             {t.footer.location}
           </p>
         </div>
+        <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs text-textLight sm:justify-end">
+          <Link href="/privacy-policy/" className="hover:text-secondary">{t.legal.privacyLink}</Link>
+          <Link href="/cookie-policy/" className="hover:text-secondary">{t.legal.cookiesLink}</Link>
+          <button type="button" onClick={() => window.openCookiePreferences?.()} className="hover:text-secondary">{t.legal.manageCookies}</button>
+        </div>
       </div>
     </footer>
   )

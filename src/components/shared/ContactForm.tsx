@@ -7,12 +7,21 @@ import { useSearchParams } from 'next/navigation'
 import { Send, CheckCircle, AlertCircle, Car, Info } from 'lucide-react'
 import { ContactFormData } from '@/types'
 import { VEHICLES } from '@/utils/constants'
+import { SERVICE_SLUGS, ServiceSlug } from '@/utils/serviceLandings'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
 import { useLanguage } from '@/context/LanguageContext'
 
 const SERVICE_OPTIONS_EN = ['Airport Transfer', 'Corporate Transportation', 'Special Events', 'City Tours & Sightseeing', 'Hourly Service', 'Point-to-Point Transfer', 'Other']
 const SERVICE_OPTIONS_FR = ['Transfert aéroport', 'Transport corporatif', 'Événements spéciaux', 'Visites de la ville', 'Service à l\'heure', 'Transfert direct', 'Autre']
+const SERVICE_OPTION_INDEX: Record<ServiceSlug, number> = {
+  'airport-transfers': 0,
+  'corporate-transportation': 1,
+  'special-events': 2,
+  'city-tours': 3,
+  'hourly-service': 4,
+  'point-to-point': 5,
+}
 
 function ContactFormInner() {
   const [formspreeState, formspreeSubmit] = useFormspree('xnjlebkw')
@@ -23,11 +32,17 @@ function ContactFormInner() {
   // arbitrary text from appearing in the UI via crafted URLs.
   const rawVehicle = searchParams.get('vehicle')
   const selectedVehicle = rawVehicle && VEHICLES.some((v) => v.name === rawVehicle) ? rawVehicle : null
+  const rawService = searchParams.get('service') as ServiceSlug | null
+  const selectedServiceSlug = rawService && SERVICE_SLUGS.includes(rawService) ? rawService : null
 
   const serviceOptions = lang === 'fr' ? SERVICE_OPTIONS_FR : SERVICE_OPTIONS_EN
+  const selectedService = selectedServiceSlug ? serviceOptions[SERVICE_OPTION_INDEX[selectedServiceSlug]] : ''
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
-    defaultValues: { vehicle: selectedVehicle ?? '' },
+    defaultValues: {
+      vehicle: selectedVehicle ?? '',
+      serviceType: selectedService,
+    },
   })
 
   const onSubmit = async (data: ContactFormData) => {
