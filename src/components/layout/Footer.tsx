@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" aria-label="FIRST CLASS LIMO Home" className="inline-block mb-6">
               <Image
-                src="/images/Firstclasss.jpeg"
+                src="/images/logonew2.png"
                 alt="FIRST CLASS LIMO Logo"
                 width={120}
                 height={120}

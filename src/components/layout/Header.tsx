@@ -50,16 +50,16 @@ export default function Header() {
       <div className="h-px gold-line opacity-60" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '105px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '123px' }}>
 
           {/* Logo */}
           <Link href="/" aria-label="FIRST CLASS LIMO Home">
             <Image
-              src="/images/Firstclasss.jpeg"
+              src="/images/logonew2.png"
               alt="First Class Logo"
-              width={300}
-              height={100}
-              style={{ height: '100px', width: 'auto', display: 'block' }}
+              width={236}
+              height={118}
+              style={{ height: '118px', width: 'auto', display: 'block' }}
               priority
             />
           </Link>
