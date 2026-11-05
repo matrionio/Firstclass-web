@@ -39,7 +39,7 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: isScrolled ? 'rgba(8,8,8,0.98)' : 'rgba(8,8,8,0.7)',
+        backgroundColor: '#000000',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         borderBottom: isScrolled ? '1px solid rgba(201,169,97,0.15)' : '1px solid transparent',
