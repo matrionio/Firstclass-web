@@ -23,7 +23,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-accent" aria-labelledby="services-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
-            <SectionTitle eyebrow={t.servicesPage.sectionEyebrow} title={t.servicesPage.sectionTitle} subtitle={t.servicesPage.sectionSubtitle} centered id="services-title" />
+            <SectionTitle eyebrow={t.servicesPage.sectionEyebrow} title={t.servicesPage.sectionTitle} subtitle={t.servicesPage.sectionSubtitle} centered light id="services-title" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service, index) => (
