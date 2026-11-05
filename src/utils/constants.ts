@@ -273,7 +273,7 @@ export const COMPANY_INFO = {
   legalName: '15820715 Canada Inc.',
   tagline: 'LUXURY IN MOTION',
   phone: '+1(450)-712-6972',
-  email: 'info@thcfirstclasslimo.ca',
+  email: 'info@firstclasslimoservice.ca',
   whatsapp: '14507126972',
   hours: 'Available 24/7',
   established: 2015,

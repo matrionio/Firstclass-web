@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useForm as useFormspree } from '@formspree/react'
 import { useSearchParams } from 'next/navigation'
@@ -38,7 +38,7 @@ function ContactFormInner() {
   const serviceOptions = lang === 'fr' ? SERVICE_OPTIONS_FR : SERVICE_OPTIONS_EN
   const selectedService = selectedServiceSlug ? serviceOptions[SERVICE_OPTION_INDEX[selectedServiceSlug]] : ''
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
+  const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>({
     defaultValues: {
       vehicle: selectedVehicle ?? '',
       serviceType: selectedService,
@@ -47,8 +47,16 @@ function ContactFormInner() {
 
   const onSubmit = async (data: ContactFormData) => {
     await formspreeSubmit(data as never)
-    reset()
   }
+
+  const leadEventSent = useRef(false)
+  useEffect(() => {
+    if (!formspreeState.succeeded || leadEventSent.current) return
+
+    leadEventSent.current = true
+    const dataLayer = (window as Window & { dataLayer?: Record<string, string>[] }).dataLayer
+    dataLayer?.push({ event: 'generate_lead' })
+  }, [formspreeState.succeeded])
 
   if (formspreeState.succeeded) {
     return (
