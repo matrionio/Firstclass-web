@@ -144,13 +144,18 @@ function ContactFormInner() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <Input id="passengers" label={f.passengers} type="number" min={1} max={20} placeholder="1" {...register('passengers', { min: 1, max: 20 })} />
+        <Input id="passengers" label={f.passengers} type="number" required min={1} max={20} placeholder="1" error={errors.passengers?.message}
+          {...register('passengers', {
+            required: `${f.passengers} is required`,
+            min: { value: 1, message: 'Minimum 1 passenger' },
+            max: { value: 20, message: 'Maximum 20 passengers' },
+          })} />
         <Input id="luggage" label={f.luggage} type="number" min={0} max={20} placeholder="0" {...register('luggage', { min: 0, max: 20 })} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Input id="pickupLocation" label={f.pickup} placeholder="123 Rue Sainte-Catherine, Montréal" maxLength={200} {...register('pickupLocation', { maxLength: { value: 200, message: 'Max 200 characters' } })} />
-        <Input id="dropoffLocation" label={f.dropoff} placeholder="Aéroport Montréal-Trudeau (YUL)" maxLength={200} {...register('dropoffLocation', { maxLength: { value: 200, message: 'Max 200 characters' } })} />
+        <Input id="dropoffLocation" label={f.dropoff} required error={errors.dropoffLocation?.message} placeholder="Aéroport Montréal-Trudeau (YUL)" maxLength={200} {...register('dropoffLocation', { required: `${f.dropoff} is required`, maxLength: { value: 200, message: 'Max 200 characters' } })} />
       </div>
 
       <div className="flex flex-col gap-1">
