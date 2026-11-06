@@ -23,7 +23,7 @@ export default function ServicesPreview() {
         style={{ fontSize: '18vw' }}
         aria-hidden="true"
       >
-        THC
+        FIRST CLASS
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
